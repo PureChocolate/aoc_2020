@@ -1,21 +1,13 @@
-with open("in2.txt", "r") as file:
-    data = file.readlines()
+with open("in2.txt", "r") as file: data = file.readlines()
 
 def run():
-    counter = 0
-    counter2= 0
-    for i in range(len(data)):
-        first = int(data[i][:data[i].find("-")])
-        second = int(data[i][data[i].find("-")+1:data[i].find(" ")])
-        let = data[i][data[i].find(" ")+1]
-        s = data[i][data[i].find(":")+2:]
-        if first <= s.count(let) <= second: 
-            counter += 1
-        if ((s[first-1] == let or s[second-1] == let) and not 
-            (s[first-1] == let and s[second-1] == let)) == True:
-            counter2 += 1   
-    print counter
-    print counter2
+    p1 = p2 = 0
+    for a in data:
+        f,s = map(int, a.split()[0].split("-"))
+        l,p = a.split()[1:]; l = l[:1]
+        if f <= p.count(l) <= s: p1 += 1
+        if ((l in (p[f-1], p[s-1])) and not (p[f-1] == p[s-1] == l)): p2 += 1   
+    print p1,p2
 
 run()
 
