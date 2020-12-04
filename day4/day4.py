@@ -15,25 +15,26 @@ def dataValid(temp):
     for i in range(len(temp)):
         temp[i] = temp[i].split(":")
         val = temp[i][1]
-        if temp[i][0] == "ecl" and not val in clrs: 
+        par = temp[i][0]
+        if par == "ecl" and not val in clrs: 
             return False
-        if temp[i][0] == "hcl" and not val[:1] == "#": 
+        if par == "hcl" and not val[:1] == "#": 
             if not val[1:].isalnum() or not len(val[1:]) == 6:
                 return False
-        if temp[i][0] == "pid" and not len(val) == 9:
+        if par == "pid" and not len(val) == 9:
             return False
-        if temp[i][0] == "hgt":
+        if par == "hgt":
             if val[-2:] == "in" and not 76 >= int(val[:-2]) >= 59:
                 return False
             elif val[-2:] == "cm" and not 193 >= int(val[:-2]) >= 150:
                 return False
             elif not val[-2:].isalpha():
                 return False
-        if temp[i][0] == "byr" and not 2002 >= int(val) >= 1920:
+        if par == "byr" and not 2002 >= int(val) >= 1920:
             return False
-        if temp[i][0] == "iyr" and not 2020 >= int(val) >= 2010:
+        if par == "iyr" and not 2020 >= int(val) >= 2010:
             return False
-        if temp[i][0] == "eyr" and not 2030 >= int(val) >= 2020:
+        if par == "eyr" and not 2030 >= int(val) >= 2020:
             return False
     return True
 
