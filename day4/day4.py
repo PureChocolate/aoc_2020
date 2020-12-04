@@ -38,7 +38,6 @@ def dataValid(temp):
             return False
     return True
 
-
 for i in range(len(data)):
     if all(r in data[i] for r in rules[:7]):
         test = [ a for a in data[i].split(" ")]
