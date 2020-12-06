@@ -7,7 +7,7 @@ for a in data:
     if f <= p.count(l) <= s: p1 += 1
     if ((l in (p[f-1], p[s-1])) and not (p[f-1] == p[s-1] == l)): p2 += 1   
 
-print p1,p2
+print(p1,p2)
 
     
 

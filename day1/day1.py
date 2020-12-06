@@ -21,5 +21,5 @@ def run(val):
     #                 print("viola " + str(a) + " " + str(n) + " " + str(c))
     #                 return a * n * c
 
-print run(2020)
+print(run(2020))
 print("---%s---" % ((time.time() - stime) * 1000))

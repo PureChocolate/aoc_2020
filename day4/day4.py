@@ -1,8 +1,7 @@
 import re
 import time
 stime = time.time()
-with open("bigboy.txt", "r") as f:
-    data = f.read().split("\n\n")
+with open("bigboy.txt", "r") as f: data = f.read().split("\n\n")
 
 rules = ["byr", "iyr","eyr","hgt","hcl","ecl","pid","cid"]
 clrs = ["amb","blu","brn","gry","grn","hzl","oth"]
@@ -32,8 +31,7 @@ c1 = c = 0
 
 for i in range(len(data)):
     test = [s for s in data[i].split()]
-    pars = ""
-    vals = ""
+    pars = vals = ""
     for k in range(len(test)):
         pars += test[k].split(":")[0] + " "
         vals += test[k].split(":")[1] + " "
@@ -43,6 +41,6 @@ for i in range(len(data)):
         c1 += 1
         if dataValid(pars,vals): c += 1
 
-print c, c1
+print(c, c1)
 print("---%s---" % ((time.time() - stime)))
 

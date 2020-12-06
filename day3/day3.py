@@ -12,7 +12,7 @@ def run(r,d):
         y += d
     return trees
 
-print run(3,1) * run(1,1) * run (5,1) * run(7,1) * run(1,2)
+print(run(3,1) * run(1,1) * run (5,1) * run(7,1) * run(1,2))
 
 
 
