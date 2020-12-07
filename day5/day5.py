@@ -1,20 +1,15 @@
 import time
 stime = time.time()
-with open("chungus2.txt", "r") as f: bp = f.read().replace("B","1").replace("F","0").replace("R","1").replace("L","0").split("\n")
+with open("chungus2.txt", "r") as f: seats = f.read().strip().replace("B","1").replace("F","0").replace("R","1").replace("L","0").split("\n")
+
+print("---%s---:parsed" % ((time.time() - stime)))
 ma = 0
-seats = []
-for a in bp:
-    num = int(a,2)
-    seats.append(num)
-    if num > ma: ma = num
+for i in range(len(seats)):
+    seats[i] = int(seats[i],2)
+    if ma < seats[i]: ma = seats[i]
+
 print(ma)
 print("---%s---:part1" % ((time.time() - stime)))
-
-seats = sorted(seats)
-for i in range(seats[0], seats[-1]+1):
-    if i not in seats:
-        print(i)
-        break
-    else: seats.pop(0)
-
+print(max(set(range(seats[len(seats)-1])[1:]) -set(seats)))
+del(seats)
 print("---%s---" % ((time.time() - stime)))
